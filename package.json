@@ -1,0 +1,42 @@
+{
+  "name": "sales",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "bootstrap": "^4.3.1",
+    "jquery": "^3.4.1",
+    "less": "^3.9.0",
+    "pure-react-carousel": "^1.20.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-responsive-carousel": "^3.1.49",
+    "react-router": "^5.0.1",
+    "react-scripts": "3.0.0",
+    "react-slick": "^0.24.0",
+    "react-whirligig": "^6.5.13",
+    "sass": "^1.21.0",
+    "slick-carousel": "^1.8.1",
+    "styled-components": "^4.3.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
