@@ -1,0 +1,38 @@
+body{
+	font-family: 'Roboto', sans-serif;
+}
+.picture-percent{
+	width: 200px;
+	height: 300px;
+	border: 2px solid #f23c00;
+	position: relative;
+}
+.price-percent{
+	position: absolute;
+	right: 0px;
+    line-height: 0;
+    text-align: center;
+    color: white;
+    width: 50px;
+    height: 50px;
+    background-color: #f23c00; 
+    font-weight: bold;
+    font-size: 18px;
+
+}
+.picture-label{
+	line-height: 5px;
+}
+.picture-name{
+	color: #605a58;
+	font-size: 12px;
+}
+.price{
+	font-weight: bold;
+	font-size: 13px;
+}
+.price-now{
+	font-size: 16px;
+	color: #f23c00;
+	font-weight: bold;
+}
