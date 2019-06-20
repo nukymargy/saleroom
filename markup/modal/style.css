@@ -1,0 +1,39 @@
+
+body{
+	font-family: 'Roboto', sans-serif;
+}
+.name{
+	color: #605a58;
+	font-size: 15px;
+	font-weight: bold;
+}
+.first-price{
+	font-size: 16px;
+	color: #f23c00;
+	font-weight: bold;
+}
+.last-price{
+	font-size: 12px;
+	margin-left: 10px;
+	color: #ada8a6;
+}
+.colour, .size{
+	font-size: 14px;
+	color: #605a58;
+	font-weight: bold;
+}
+.color{
+	font-size: 12px;
+	color: #ada8a6;
+	font-weight: bold;
+}
+.size-box{
+	display: flex;
+}
+.box{
+	width: 30px;
+	height: 30px;
+	border:1px solid #605a58;
+	margin-right: 5px;
+
+}
