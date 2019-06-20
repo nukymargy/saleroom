@@ -11,12 +11,6 @@ import sale8 from "../assets/saleImages/s8.jpg";
 import sale9 from "../assets/saleImages/s9.jpg";
 import {SaleList} from "./SaleList";
 
-const imageStyle = {
-    width: '200px',
-    height: '200px',
-    borderRadius: '50%',
-};
-
 function getSales(shopId) {
     return [
         {id: 1, name: `shop ${shopId} sale 1`, img: sale1, oldPrice: 15000, newPrice: 10000, salePercent: 10},

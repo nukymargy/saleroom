@@ -3,10 +3,9 @@ import React from 'react';
 import './App.css';
 import {Footer} from "./components/Footer";
 import {Header} from "./components/Header";
-import {ShopList} from "./components/ShopList";
+import ShopList from "./components/ShopList";
 
 class App extends React.Component {
-
     render() {
         return (
             <>

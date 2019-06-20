@@ -1,8 +1,9 @@
 // import 'pure-react-carousel/dist/react-carousel.es.css';
 import React from "react";
+import {withRouter} from "react-router-dom";
+import logos from '../assets/shopLogos'
 import {Carousel} from "./Carousel";
 import {Shop} from "./Shop";
-import logos from '../assets/shopLogos'
 
 const shopList = [
     {id: 1, name: 'Shop 1'},
@@ -19,31 +20,35 @@ const shopList = [
 
 shopList.forEach(shop => shop.logo = logos[shop.id]);
 
-export class ShopList extends React.Component {
-
+class ShopList extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            selectedIndex: 0
-        };
 
         this.handleSelectedIndexChange = this.handleSelectedIndexChange.bind(this);
     }
 
     handleSelectedIndexChange(index) {
-        this.setState({selectedIndex: index})
+        const selectedShopId = shopList[index].id;
+        this.props.history.push(`/${selectedShopId}`);
     }
 
     render() {
+        const selectedShopId = +this.props.match.params.selectedShopId;
+        const selectedIndex = shopList.findIndex(shop => shop.id === selectedShopId);
+
         return (
             <div>
                 <Carousel
                     shops={shopList}
-                    selectedIndex={this.state.selectedIndex}
-                    onSelectedIndexChange={this.handleSelectedIndexChange}/>
-                <Shop id={shopList[this.state.selectedIndex].id}/>
+                    selectedIndex={selectedIndex}
+                    onSelectedIndexChange={this.handleSelectedIndexChange}
+                />
+
+                <Shop id={selectedShopId}/>
+
             </div>
         );
     }
 }
 
+export default withRouter(ShopList);
