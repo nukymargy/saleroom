@@ -6,7 +6,7 @@ import './index.css';
 
 ReactDOM.render(
     <BrowserRouter>
-        <Route exact path="/:selectedShopId" component={App}/>
+        <Route exact path="/:selectedShopId?/:selectedSaleId?" component={App}/>
     </BrowserRouter>,
     document.getElementById('root')
 );

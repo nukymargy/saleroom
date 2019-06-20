@@ -27,14 +27,15 @@ export function Carousel(props) {
                 initialSlide={selectedIndex}
                 afterChange={onSelectedIndexChange}
             >
-
-                {shops.map(shop => (
+                {shops.map(shop =>
                     <div key={shop.id}>
+                        <div className="close" style={{color: 'red'}}>
+                            <span aria-hidden="true">{shop.count}</span>
+                        </div>
                         <img className="img-thumbnail" alt="shop logo" style={logoStyle} src={shop.logo}/>
                         <p>{shop.name}</p>
                     </div>
-
-                ))}
+                )}
             </Slider>
         </div>
     )

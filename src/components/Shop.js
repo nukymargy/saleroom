@@ -13,87 +13,94 @@ import {SaleList} from "./SaleList";
 
 function getSales(shopId) {
     return [
-        {id: 1, name: `shop ${shopId} sale 1`, img: sale1, oldPrice: 15000, newPrice: 10000, salePercent: 10},
+        {
+            id: 1,
+            name: `shop ${shopId} sale 1`,
+            img: sale1, oldPrice: 15000,
+            newPrice: 10000,
+            salePercent: 10
+        },
         {
             id: 2,
             name: `shop ${shopId} sale 2`,
             img: sale2,
-            oldPrice: 'Old price',
-            newPrice: 'New price',
+            oldPrice: 15000,
+            newPrice: 13000,
             salePercent: 10
         },
         {
             id: 3,
             name: `shop ${shopId} sale 3`,
             img: sale3,
-            oldPrice: 'Old price',
-            newPrice: 'New price',
+            oldPrice: 15000,
+            newPrice: 13000,
             salePercent: 10
         },
         {
             id: 4,
             name: `shop ${shopId} sale 4`,
             img: sale4,
-            oldPrice: 'Old price',
-            newPrice: 'New price',
+            oldPrice: 15000,
+            newPrice: 13000,
             salePercent: 10
         },
         {
             id: 5,
             name: `shop ${shopId} sale 5`,
             img: sale5,
-            oldPrice: 'Old price',
-            newPrice: 'New price',
+            oldPrice: 15000,
+            newPrice: 13000,
             salePercent: 10
         },
         {
             id: 6,
             name: `shop ${shopId} sale 6`,
             img: sale6,
-            oldPrice: 'Old price',
-            newPrice: 'New price',
+            oldPrice: 15000,
+            newPrice: 13000,
             salePercent: 10
         },
         {
             id: 7,
             name: `shop ${shopId} sale 7`,
             img: sale7,
-            oldPrice: 'Old price',
-            newPrice: 'New price',
+            oldPrice: 15000,
+            newPrice: 13000,
             salePercent: 10
         },
         {
             id: 8,
             name: `shop ${shopId} sale 8`,
             img: sale8,
-            oldPrice: 'Old price',
-            newPrice: 'New price',
+            oldPrice: 15000,
+            newPrice: 13000,
             salePercent: 10
         },
         {
             id: 9,
             name: `shop ${shopId} sale 9`,
             img: sale9,
-            oldPrice: 'Old price',
-            newPrice: 'New price',
+            oldPrice: 15000,
+            newPrice: 13000,
             salePercent: 10
         },
         {
             id: 10,
             name: `shop ${shopId} sale 10`,
             img: sale10,
-            oldPrice: 'Old price',
-            newPrice: 'New price',
+            oldPrice: 15000,
+            newPrice: 13000,
             salePercent: 10
         }
     ];
 }
 
+
 export function Shop(props) {
     const [sales, setSales] = useState([]);
 
     useEffect(() => {
-        const sales = getSales(props.id);
+        const sales = getSales(props.id, props.count);
         setSales(sales);
     }, [props.id]);
 
