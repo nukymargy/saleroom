@@ -1,44 +1,38 @@
-import React from "react";
+import React, {useState} from "react";
+import {withRouter} from "react-router-dom";
 import {Sale} from "./Sale";
-import SaleInfo from "./SaleInfo";
-import {useState} from "react";
+import SaleModal from "./SaleModal";
 
+function SaleList(props) {
+    const {sales, match, history} = props;
 
-export function SaleList(props) {
+    const selectedSaleParam = match.params.selectedSaleId;
+    const [sale, setSale] = useState(null);
 
-    const [modalIsOpen, setModal] = useState(false);
-    const [sale, setSale] = useState([]);
+    // useEffect(() => {
+    //     history.push(`/${selectedShopId}`);
+    // }, [selectedShopId]);
 
-    const sales = props.sales;
-    const openModal = (sale) =>{ setModal(true); setSale(sale)};
-    const closeModal = () => setModal(false);
-
-    return (<>
-        <div className="row justify-content-center">
-            {sales.map(sale => (
-                <div key={sale.id} className="px-4" onClick={()=> openModal(sale)}>
-                    <Sale
-                        name={sale.name}
-                        oldPrice={sale.oldPrice}
-                        newPrice={sale.newPrice}
-                        salePercent={sale.salePercent}
-                    />
-                </div>
-            ))}
-
-        </div>
-            <SaleInfo
-                name={sale.name}
-                oldPrice={sale.oldPrice}
-                newPrice={sale.newPrice}
-                salePercent={sale.salePercent}
-                img={sale.img}
-                isOpen={modalIsOpen}
-                closeModal={closeModal}
+    return (
+        <>
+            <div className="row justify-content-center">
+                {sales.map(sale => (
+                    <div key={sale.id} className="px-4" onClick={() => setSale(sale)}>
+                        <Sale
+                            name={sale.name}
+                            oldPrice={sale.oldPrice}
+                            newPrice={sale.newPrice}
+                            salePercent={sale.salePercent}
+                        />
+                    </div>
+                ))}
+            </div>
+            <SaleModal
+                selectedSale={sale}
+                onCloseSale={() => setSale(null)}
             />
         </>
     )
 }
 
-
-
+export default withRouter(SaleList);

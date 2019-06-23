@@ -1,84 +1,68 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {withRouter} from "react-router-dom";
-import logos from '../assets/shopLogos'
 import {Carousel} from "./Carousel";
 import {Shop} from "./Shop";
 
-const list = [
-    {id: 1, name: 'Shop 1', count: 8},
-    {id: 2, name: 'Shop 2', count: 1},
-    {id: 3, name: 'Shop 3', count: 3},
-    {id: 4, name: 'Shop 4', count: 5},
-    {id: 5, name: 'Shop 5', count: 8},
-    {id: 6, name: 'Shop 6', count: 7},
-    {id: 7, name: 'Shop 7', count: 0},
-    {id: 8, name: 'Shop 8', count: 6},
-    {id: 9, name: 'Shop 9', count: 10},
-    {id: 10, name: 'Shop 10', count: 9}
-];
+// function useRouterState(paramKey, routerProps, initialValue) {
+//     const paramValue = routerProps.match.params[paramKey];
+//     const initialShopId = paramValue !== null ? paramValue : initialValue;
+//
+//     const [selectedShopId, setSelectedShopId] = useState();
+//
+//     function navigate(newValue) {
+//         routerProps.history.push(`/${newValue}`);
+//     }
+//
+//     useEffect(() => {
+//
+//     }, [])
+//
+//     function getValue() {
+//         if (paramValue != null) {
+//             return paramValue;
+//         }
+//         if (initialValue == null) {
+//             return initialValue;
+//         }
+//         navigate(initialValue);
+//         return initialValue;
+//     }
+//
+//     return [getValue(), navigate];
+// }
 
-const shops = list
-    .filter(shop => shop.count)
-    .map(shop => ({...shop, logo: logos[shop.id]}));
+function ShopList(props) {
+    const {shops, match, history} = props;
 
+    const selectedShopParam = match.params.selectedShopId;
+    const initialShopId = selectedShopParam != null ? +selectedShopParam : shops[0].id;
 
+    const [selectedShopId, setSelectedShopId] = useState(initialShopId);
 
-class ShopList extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {shops: null};
-        this.handleSelectedIndexChange = this.handleSelectedIndexChange.bind(this);
-    }
+    useEffect(() => {
+        history.push(`/${selectedShopId}`);
+    }, [selectedShopId]);
 
-    handleSelectedIndexChange(index) {
+    function handleSelectedIndexChange(index) {
         const selectedShopId = shops[index].id;
-        this.navigate(selectedShopId);
+        setSelectedShopId(`${selectedShopId}`);
     }
 
-    componentDidMount() {
-        setTimeout(() => {
-            this.setState(
-                {shops},
-                () => this.initRouting()
-            );
-        }, 100);
-    }
+    const selectedIndex = shops.findIndex(shop => shop.id === selectedShopId);
 
-    render() {
-        const shops = this.state.shops;
-        const selectedShopParam = this.props.match.params.selectedShopId;
+    return (
+        <div>
+            <Carousel
+                shops={shops}
+                selectedIndex={selectedIndex}
+                onSelectedIndexChange={handleSelectedIndexChange}
+            />
 
-        if (!selectedShopParam || !shops) {
-            return null;
-        }
+            <Shop id={selectedShopId}/>
 
-        const selectedIndex = shops.findIndex(shop => shop.id === +selectedShopParam);
+        </div>
+    );
 
-        return (
-            <div>
-                <Carousel
-                    shops={shops}
-                    selectedIndex={selectedIndex}
-                    onSelectedIndexChange={this.handleSelectedIndexChange}
-                />
-
-                <Shop id={+selectedShopParam}/>
-
-            </div>
-        );
-    }
-
-    navigate(shopId) {
-        this.props.history.push(`/${shopId}`);
-    }
-
-    initRouting() {
-        const selectedShopParam = this.props.match.params.selectedShopId;
-
-        if (selectedShopParam == null) {
-            this.navigate(this.state.shops[0].id);
-        }
-    }
 }
 
 export default withRouter(ShopList);

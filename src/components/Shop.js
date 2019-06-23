@@ -9,7 +9,7 @@ import sale6 from "../assets/saleImages/s6.jpg";
 import sale7 from "../assets/saleImages/s7.jpg";
 import sale8 from "../assets/saleImages/s8.jpg";
 import sale9 from "../assets/saleImages/s9.jpg";
-import {SaleList} from "./SaleList";
+import SaleList from "./SaleList";
 
 function getSales(shopId) {
     return [

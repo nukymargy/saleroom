@@ -39,8 +39,6 @@ export const SaleName = styled.p`
 `;
 
 export class Sale extends React.Component {
-
-
     render() {
         return (
             <div>

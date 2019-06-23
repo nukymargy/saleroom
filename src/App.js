@@ -3,7 +3,7 @@ import React from 'react';
 import './App.css';
 import {Footer} from "./components/Footer";
 import {Header} from "./components/Header";
-import ShopList from "./components/ShopList";
+import {ShopListContainer} from "./components/ShopListContainer";
 
 class App extends React.Component {
     render() {
@@ -14,7 +14,7 @@ class App extends React.Component {
                 </header>
 
                 <div className="App container">
-                    <ShopList/>
+                    <ShopListContainer/>
                 </div>
                 <footer className="container-fluid mb-0">
                     <Footer/>
