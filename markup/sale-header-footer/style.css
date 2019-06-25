@@ -42,16 +42,21 @@
 .icons{
 	margin-top: 20px;
 	cursor: pointer;
+	display: flex;
 }
+
 .icons i{
+	display: flex;
+    justify-content: center;
+    align-items: center;
 	margin-left: 10px;
     border-radius: 50%;
     border: 1px solid #1e3538;
     width: 44px;
-    height: 32px;
+    height: 44px;
     background-color: #1e3538;
     text-align: center;
-    padding-top: 10px;
+   
 
 
 }
