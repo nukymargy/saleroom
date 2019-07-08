@@ -1,23 +1,16 @@
 import React, {useState, useEffect} from 'react';
-import logos from '../assets/shopLogos'
 import ShopList from "./ShopList";
 
 const list = [
-    {id: 1, name: 'Shop 1', count: 8},
-    {id: 2, name: 'Shop 2', count: 1},
-    {id: 3, name: 'Shop 3', count: 3},
-    {id: 4, name: 'Shop 4', count: 5},
-    {id: 5, name: 'Shop 5', count: 8},
-    {id: 6, name: 'Shop 6', count: 7},
-    {id: 7, name: 'Shop 7', count: 0},
-    {id: 8, name: 'Shop 8', count: 6},
-    {id: 9, name: 'Shop 9', count: 10},
-    {id: 10, name: 'Shop 10', count: 9}
+    {id: 1, name: 'Adidas', count: 8, logo: '/shop-logos/1.png'},
+    {id: 2, name: "Marc O'Polo", count: 1, logo: '/shop-logos/2.jpg'},
+    {id: 3, name: 'Hugo Boss', count: 3, logo: '/shop-logos/3.jpg'},
+    {id: 4, name: 'River Island', count: 5, logo: '/shop-logos/4.jpg'},
+    {id: 5, name: "She's", count: 8, logo: '/shop-logos/5.gif'},
+    {id: 6, name: 'H&M', count: 7, logo: '/shop-logos/6.jpg'},
 ];
 
-const fetchedShops = list
-    .filter(shop => shop.count)
-    .map(shop => ({...shop, logo: logos[shop.id]}));
+const fetchedShops = list.filter(shop => shop.count);
 
 
 export function ShopListContainer() {

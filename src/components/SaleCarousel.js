@@ -1,18 +1,11 @@
-import React from "react";
+import React, {useState} from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
-import sale1 from "../assets/saleImages/s3.jpg";
-import sale2 from "../assets/saleImages/s4.jpg";
-import sale3 from "../assets/saleImages/s5.jpg";
-import sale4 from "../assets/saleImages/s6.jpg";
 
-const sales = [sale1, sale2, sale3, sale4];
-
-export function SaleCarousel(props) {
-
+function SaleCarousel({images}) {
     return (
-        <div className="container">
+        <div className="container sale-carousel">
             <Slider
                 dots={true}
                 dotsClass="slick-dots slick-thumb"
@@ -20,28 +13,31 @@ export function SaleCarousel(props) {
                 speed={500}
                 slidesToShow={1}
                 slidesToScroll={1}
-                adaptiveHeight={true}
                 customPaging={(i) => (
                     <a>
-                        {/*<img src={sales[i]}/>*/}
+                        <img src={images[i]}/>
                     </a>
                 )}
             >
-                <div>
-                    <img className="mx-auto" src={sale1}/>
-                </div>
-                <div>
-                    <img className="mx-auto" src={sale2}/>
-                </div>
-                <div>
-                    <img className="mx-auto" src={sale3}/>
-                </div>
-                <div>
-                    <img  className="mx-auto" src={sale4}/>
-                </div>
+                {images.map((src, index) => (
+                    <div key={index}>
+                        <img className="mx-auto" src={src} style={{height: '60vh'}}/>
+                    </div>
+                ))}
             </Slider>
         </div>
     )
 
 }
 
+const withContainerHeight = Component => props => {
+    const [height, setHeight] = useState(0);
+
+    return (
+        <div style={{height: '100%'}} ref={container => container && setHeight(container.offsetHeight)}>
+            {height && <Component {...props} containerHeight={height}/>}
+        </div>
+    )
+};
+
+export default SaleCarousel;

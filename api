@@ -1,0 +1,18 @@
+/shops
+[{
+    id,
+    shopName,
+    saleCount
+}]
+
+/sales/:shopId
+[{
+    name,
+    oldPrice,
+    percent,
+    color,
+    size,
+    imageUrls: [
+        
+    ]
+}]

@@ -9,16 +9,11 @@ class App extends React.Component {
     render() {
         return (
             <>
-                <header className="container-fluid">
-                    <Header/>
-                </header>
-
-                <div className="App container">
+                <Header/>
+                <div className="container">
                     <ShopListContainer/>
                 </div>
-                <footer className="container-fluid mb-0">
-                    <Footer/>
-                </footer>
+                <Footer/>
             </>
         );
     }

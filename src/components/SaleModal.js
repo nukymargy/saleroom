@@ -11,7 +11,8 @@ const customStyles = {
         right: 'auto',
         bottom: 'auto',
         marginRight: '-50%',
-        transform: 'translate(-50%, -50%)'
+        transform: 'translate(-50%, -50%)',
+        height: '90%'
     }
 };
 
@@ -19,9 +20,6 @@ Modal.setAppElement('#root');
 
 function SaleModal(props) {
     const {selectedSale, onCloseSale} = props;
-
-    console.log(selectedSale);
-
     return (
         <Modal
             isOpen={selectedSale != null}
@@ -33,10 +31,7 @@ function SaleModal(props) {
                     <button onClick={onCloseSale} type="button" className="close" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                    <SaleInfo
-                        name={selectedSale.name}
-                        oldPrice={selectedSale.oldPrice}
-                    />
+                    <SaleInfo {...selectedSale} />
                 </>
             )}
         </Modal>

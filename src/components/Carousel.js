@@ -13,6 +13,7 @@ const logoStyle = {
 
 export function Carousel(props) {
     const {shops, selectedIndex, onSelectedIndexChange} = props;
+    const slidesCount = window.innerWidth > 992 ? 5 : 3;
 
     return (
         <div className="container">
@@ -22,18 +23,15 @@ export function Carousel(props) {
                 centerMode={true}
                 infinite={true}
                 centerPadding="60px"
-                slidesToShow={7}
+                slidesToShow={slidesCount}
                 speed={500}
                 initialSlide={selectedIndex}
                 afterChange={onSelectedIndexChange}
             >
                 {shops.map(shop =>
                     <div key={shop.id}>
-                        <div className="close" style={{color: 'red'}}>
-                            <span aria-hidden="true">{shop.count}</span>
-                        </div>
                         <img className="img-thumbnail" alt="shop logo" style={logoStyle} src={shop.logo}/>
-                        <p>{shop.name}</p>
+                        <p style={{textAlign: "center"}}>{shop.name}</p>
                     </div>
                 )}
             </Slider>
