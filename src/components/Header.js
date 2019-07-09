@@ -33,8 +33,7 @@ export class Header extends React.Component {
                 <img src={logo}/>
                 <Menu>
                     <ul>
-                        <li>Home</li>
-                        <li>About</li>
+
                     </ul>
                 </Menu>
             </HeaderContainer>
