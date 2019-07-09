@@ -45,3 +45,10 @@ body{
 .ReactModal__Body--open {
     overflow-y: hidden;
 }
+
+.ReactModal__Content {
+    max-width: 1500px;
+}
+.ReactModal__Content--after-open{
+    max-width: 1500px;
+}
