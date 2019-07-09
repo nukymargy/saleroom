@@ -20,6 +20,7 @@ Modal.setAppElement('#root');
 
 function SaleModal(props) {
     const {selectedSale, onCloseSale} = props;
+
     return (
         <Modal
             isOpen={selectedSale != null}

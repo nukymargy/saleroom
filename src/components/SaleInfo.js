@@ -46,6 +46,7 @@ const SizeBox = styled.div`
  `;
 
 export function SaleInfo(props) {
+    console.log(props)
     return (
         <div>
             <div className="row h-100">
@@ -55,8 +56,8 @@ export function SaleInfo(props) {
                 <div className="col-md-4 mt-5">
                     <SaleName>House Of Hounds Osprey tassel <br/> loafers in brown croc </SaleName>
 
-                    <NewPrice>$26.50</NewPrice>
-                    <OldPrice>$59.00</OldPrice>
+                    <NewPrice>{props.newPrice}Դ</NewPrice>
+                    <OldPrice>{props.oldPrice}Դ</OldPrice>
 
                     <Info>COLOUR : <SaleColour> Brown</SaleColour></Info>
                     <Info>SIZE :</Info>

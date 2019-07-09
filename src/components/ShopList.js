@@ -40,7 +40,9 @@ function ShopList(props) {
     const [selectedShopId, setSelectedShopId] = useState(initialShopId);
 
     useEffect(() => {
-        history.push(`/${selectedShopId}`);
+        if (+match.params.selectedShopId !== selectedShopId) {
+            history.push(`/${selectedShopId}`);
+        }
     }, [selectedShopId]);
 
     function handleSelectedIndexChange(index) {

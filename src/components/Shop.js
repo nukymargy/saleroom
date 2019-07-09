@@ -12,8 +12,8 @@ function getSales(shopId) {
                 `/sales/${shopId}/1/3.jpg`,
                 `/sales/${shopId}/1/4.jpg`
             ],
-            oldPrice: 15000,
-            newPrice: 10000,
+            oldPrice: 18500,
+            newPrice: 18500-18500*10/100,
             salePercent: 10
         },
         {
@@ -25,9 +25,9 @@ function getSales(shopId) {
                 `/sales/${shopId}/2/3.jpg`,
                 `/sales/${shopId}/2/4.jpg`
             ],
-            oldPrice: 15000,
-            newPrice: 13000,
-            salePercent: 10
+            oldPrice: 40000,
+            newPrice: 40000-40000*5/100,
+            salePercent: 5
         },
         {
             id: 3,
@@ -38,9 +38,22 @@ function getSales(shopId) {
                 `/sales/${shopId}/3/3.jpg`,
                 `/sales/${shopId}/3/4.jpg`
             ],
-            oldPrice: 15000,
-            newPrice: 13000,
-            salePercent: 10
+            oldPrice: 25000,
+            newPrice: 25000-25000*50/100,
+            salePercent: 50
+        },
+        {
+            id: 3,
+            name: `shop ${shopId} sale 3`,
+            images: [
+                `/sales/${shopId}/4/1.jpg`,
+                `/sales/${shopId}/4/2.jpg`,
+                `/sales/${shopId}/4/3.jpg`,
+                `/sales/${shopId}/4/4.jpg`
+            ],
+            oldPrice: 30000,
+            newPrice: 30000-30000*80/100,
+            salePercent: 80
         },
         // {
         //     id: 4,
@@ -101,16 +114,20 @@ function getSales(shopId) {
     ];
 }
 
+function newPrice(oldPrice, salePercent){
+    return oldPrice - oldPrice*salePercent/100;
+}
+
 
 export function Shop(props) {
-    const [sales, setSales] = useState([]);
+    const [sales, setSales] = useState(null);
 
     useEffect(() => {
         const sales = getSales(props.id, props.count);
         setSales(sales);
     }, [props.id]);
 
-    return (
+    return sales && (
         <div className="container">
             <SaleList sales={sales}/>
         </div>
