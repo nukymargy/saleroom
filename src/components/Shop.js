@@ -43,7 +43,7 @@ function getSales(shopId) {
             salePercent: 50
         },
         {
-            id: 3,
+            id: 4,
             name: `shop ${shopId} sale 3`,
             images: [
                 `/sales/${shopId}/4/1.jpg`,
